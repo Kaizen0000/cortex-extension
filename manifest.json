@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Omni-Cortex Local Memory",
+  "version": "1.0",
+  "description": "Universal local memory layer for AI interactions.",
+  "permissions": [
+    "nativeMessaging"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Omni-Cortex Dashboard"
+  }
+}

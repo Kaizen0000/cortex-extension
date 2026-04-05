@@ -1,0 +1,17 @@
+# Compiled Go binaries
+*.exe
+omnicortex
+omnicortex.exe
+
+# Databases and Logs
+memory.db
+cortex_debug.log
+*.log
+
+# Native Messaging Local Configs
+com.omnicortex.local.json
+register.reg
+
+# OS generated files
+.DS_Store
+Thumbs.db
