@@ -13,7 +13,7 @@ Omni-Cortex is a powerful, privacy-first Chrome extension and local Go backend t
 ### 🎥 See it in Action
 
 
-> **[📹 Watch the Demo Video Here](link-to-your-video-or-youtube)**
+> **[📹 Watch the Demo Video Here]([link-to-your-video-or-youtube](https://youtu.be/Bkk5aCTQbmE))**
 > *(Tip: If you have a `.gif` of the UI, you can replace this line with `![Demo](link_to_gif.gif)` to embed it directly!)*
 
 
