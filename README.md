@@ -58,9 +58,10 @@ Because Omni-Cortex writes data directly to your local drive, it requires a brie
 
 #### 1. Compile the Go Backend
 Ensure you have [Go installed](https://go.dev/). Open your terminal in the project folder and compile the backend as a hidden, headless background process:
-\`\`\`bash
+
+```bash
 go build -ldflags="-H windowsgui" -o omnicortex.exe main.go
-\`\`\`
+```
 
 #### 2. Load the Extension
 1. Open Chrome and navigate to `chrome://extensions/`.
@@ -70,7 +71,8 @@ go build -ldflags="-H windowsgui" -o omnicortex.exe main.go
 
 #### 3. Configure Native Messaging
 Chrome needs a map to find your executable. Create a file named `com.omnicortex.local.json` in your project folder:
-\`\`\`json
+
+```json
 {
   "name": "com.omnicortex.local",
   "description": "Omni-Cortex Local Database",
@@ -80,7 +82,7 @@ Chrome needs a map to find your executable. Create a file named `com.omnicortex.
     "chrome-extension://<YOUR_EXTENSION_ID_HERE>/"
   ]
 }
-\`\`\`
+```
 *(Note: Use double backslashes `\\` for the Windows file path).*
 
 #### 4. Register with Windows
@@ -88,9 +90,9 @@ Chrome needs to know this host config exists. Instead of manually editing your r
 
 *(Make sure to replace the path with your actual absolute path to the `.json` file, keeping the double backslashes `\\`)*:
 
-\`\`\`cmd
+```cmd
 REG ADD "HKCU\Software\Google\Chrome\NativeMessagingHosts\com.omnicortex.local" /ve /t REG_SZ /d "C:\\Absolute\\Path\\To\\Your\\com.omnicortex.local.json" /f
-\`\`\`
+```
 
 **Restart Chrome entirely**, and Omni-Cortex is ready to use!
 
