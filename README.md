@@ -1,4 +1,3 @@
-
 <div align="center">
 
 # ✦ OMNI-CORTEX
@@ -59,22 +58,19 @@ Because Omni-Cortex writes data directly to your local drive, it requires a brie
 
 #### 1. Compile the Go Backend
 Ensure you have [Go installed](https://go.dev/). Open your terminal in the project folder and compile the backend as a hidden, headless background process:
-```bash
+\`\`\`bash
 go build -ldflags="-H windowsgui" -o omnicortex.exe main.go
-````
+\`\`\`
 
-#### 2\. Load the Extension
+#### 2. Load the Extension
+1. Open Chrome and navigate to `chrome://extensions/`.
+2. Enable **Developer mode** (top right corner).
+3. Click **Load unpacked** and select the Omni-Cortex project folder.
+4. **Important:** Copy your generated **Extension ID** (a long string of lowercase letters).
 
-1.  Open Chrome and navigate to `chrome://extensions/`.
-2.  Enable **Developer mode** (top right corner).
-3.  Click **Load unpacked** and select the Omni-Cortex project folder.
-4.  **Important:** Copy your generated **Extension ID** (a long string of lowercase letters).
-
-#### 3\. Configure Native Messaging
-
+#### 3. Configure Native Messaging
 Chrome needs a map to find your executable. Create a file named `com.omnicortex.local.json` in your project folder:
-
-```json
+\`\`\`json
 {
   "name": "com.omnicortex.local",
   "description": "Omni-Cortex Local Database",
@@ -84,45 +80,39 @@ Chrome needs a map to find your executable. Create a file named `com.omnicortex.
     "chrome-extension://<YOUR_EXTENSION_ID_HERE>/"
   ]
 }
-```
-
+\`\`\`
 *(Note: Use double backslashes `\\` for the Windows file path).*
 
-#### 4\. Register with Windows
-
-Chrome needs to know this host config exists. Instead of manually editing your registry, open **Command Prompt** (cmd) and paste this single command.
+#### 4. Register with Windows
+Chrome needs to know this host config exists. Instead of manually editing your registry, open **Command Prompt** (cmd) and paste this single command. 
 
 *(Make sure to replace the path with your actual absolute path to the `.json` file, keeping the double backslashes `\\`)*:
 
-```cmd
+\`\`\`cmd
 REG ADD "HKCU\Software\Google\Chrome\NativeMessagingHosts\com.omnicortex.local" /ve /t REG_SZ /d "C:\\Absolute\\Path\\To\\Your\\com.omnicortex.local.json" /f
-```
+\`\`\`
 
-**Restart Chrome entirely**, and Omni-Cortex is ready to use\!
+**Restart Chrome entirely**, and Omni-Cortex is ready to use!
 
------
+---
 
 ### 🧠 Quick Start
 
-1.  **Save Context:** Hover over any AI response. A minimalist `✦ Save to Stream` button will appear. Click it, name the context, and it's secured.
-2.  **Inject Context:** Open the Omni-Cortex panel (`Ctrl+Shift+Space`), select your saved blocks, and click **Inject Selected Context**.
-3.  **Export:** Click **Export .md** to instantly generate a Markdown knowledge base from your current stream.
+1. **Save Context:** Hover over any AI response. A minimalist `✦ Save to Stream` button will appear. Click it, name the context, and it's secured.
+2. **Inject Context:** Open the Omni-Cortex panel (`Ctrl+Shift+Space`), select your saved blocks, and click **Inject Selected Context**.
+3. **Export:** Click **Export .md** to instantly generate a Markdown knowledge base from your current stream.
 
------
+---
 
 ### 🛠️ Tech Stack
+* **UI:** HTML5, CSS3 (Glassmorphism), Vanilla JS
+* **Browser API:** Chrome Manifest V3, Native Messaging
+* **Backend:** Go (Golang)
+* **Database:** SQLite (`modernc.org/sqlite`)
 
-  * **UI:** HTML5, CSS3 (Glassmorphism), Vanilla JS
-  * **Browser API:** Chrome Manifest V3, Native Messaging
-  * **Backend:** Go (Golang)
-  * **Database:** SQLite (`modernc.org/sqlite`)
+---
 
------
-
-\<div align="center"\>
-\<p\>Designed and built for peak AI productivity.\</p\>
-\<p\>Distributed under the MIT License.\</p\>
-\</div\>
-
-```
-```
+<div align="center">
+  <p>Designed and built for peak AI productivity.</p>
+  <p>Distributed under the MIT License.</p>
+</div>
